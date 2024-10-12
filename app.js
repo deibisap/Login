@@ -41,6 +41,12 @@ app.get ('/',(req,res)=> {
     res.render('index',{msg:'ESTO ES UN MENSAJE DESDE NODE'});
 
 })
+app.get ('/login',(req,res)=> {
+    res.render('login');
+
+})
+
+
 
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000');
