@@ -38,7 +38,7 @@ const connection = require('./database/db');
 
 // RUTAS
 app.get ('/',(req,res)=> {
-    res.render('index');
+    res.render('index',{msg:'ESTO ES UN MENSAJE DESDE NODE'});
 
 })
 
