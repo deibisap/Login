@@ -36,9 +36,9 @@ app.use(session({
 const connection = require('./database/db');
 
 
-console.log(__dirname);
+// RUTAS
 app.get ('/',(req,res)=> {
-    res.send('HOLA MUNDO');
+    res.render('index');
 
 })
 
