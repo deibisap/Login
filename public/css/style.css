@@ -26,3 +26,58 @@ body{
     box-sizing: border-box;
 
 }
+
+/* estilos de LOGIN*/
+
+.btn-login{
+
+    width: 100%;
+    padding: 15px;
+    background-color: #6f42c1;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+    color: white;
+}
+.btn-login:hover, .btn-login:active{
+    color: #fff;
+    background-color: #61428f;
+    border-color: #61428f;
+}
+.btn-login:focus{
+    box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
+}
+/* ESTILOS BOTÓN REGISTER*/
+
+
+.btn-register{
+
+    width: 100%;
+    padding: 15px;
+    background-color: #34d399;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+    color: white;
+
+    /* Apariencia del botón*/
+-webkit-appearance: button;
+-maz-appearance: button;
+appearance: button;
+text-decoration:none;
+}
+
+
+
+.btn-register:hover, .btn-register:active{
+    color: #fff;
+    background-color: #10b981;
+    border-color: #10b981;
+}
+.btn-login:focus{
+    box-shadow: 0 0 0 3px #10b981;
+}
