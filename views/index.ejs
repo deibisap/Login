@@ -8,8 +8,17 @@
 </head>
 <body>
     
-    <h1>Pagina de inicio</h1>
-    <h2>El usuario conectado es:<%= msg %> </h2>
+    <body class="text-center">         
+        <div class="contenedor">
+          <h1>Página de Inicio</h1>
+          <% if (login) { %>                
+              <h1>Usuario conectado: <strong><%= name %></strong></h1>                        
+              <a href="logout" class="a-logout">Logout</a>
+          <%} else { %>
+              <h1><strong><%= name %></strong></h1>   
+              <a href="login" class="a-login">Ir a Login</a>
+          <% } %>
+        </div>
     
 </body>
 </html>

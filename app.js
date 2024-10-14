@@ -37,10 +37,8 @@ const connection = require('./database/db');
 
 
 // RUTAS
-app.get ('/',(req,res)=> {
-    res.render('index',{msg:'ESTO ES UN MENSAJE DESDE NODE'});
 
-})
+
 app.get ('/login',(req,res)=> {
     res.render('login');
 
@@ -127,7 +125,7 @@ app.post('/auth', async(req, res) => {
    
 });
 
-//12 sesión
+//12 autenticacion de paginas
 
 app.get('/', (req, res)=> {
 	if (req.session.loggedin) {
@@ -144,7 +142,7 @@ app.get('/', (req, res)=> {
 	res.end();
 });
 
-
+//13 Logout
 
 
 app.listen(3000, (req, res)=>{
