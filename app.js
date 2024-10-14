@@ -71,6 +71,27 @@ app.post('/register', async (req, res) => {
     
 });
 
+// 11 AUTENTICACION
+app.post('/auth', async(req, res) => {
+    const user = req.body.user;
+    const pass = req.body.pass;
+    let passwordHaash = await bcryptjs.hash(pass,8);
+    if(user && pass){
+
+        connection.query ('SELECT * FROM users WHERE user = ?', [user], async(error, results) =>{
+            if(results.length == 0 || ! (await bcryptjs.compare (pass, results[0].pass))){
+
+                    res.send ('USUARIO O CONTRASEÑA INCORRECTA');  
+            }else {
+
+                res.send ('LOGIN CORRECTO')
+            }
+
+        } )
+
+    }
+   
+});
 
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000');
