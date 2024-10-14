@@ -3,6 +3,7 @@ body{
     font-family: roboto;
     margin: auto;
     text-align: center;
+    
 }
 .login-form, .contenedor{
     width: 300px;
@@ -15,6 +16,7 @@ body{
     color: midnightblue;
     font-size: 28px;
     padding: 70px 0 10px 0;
+    
 }
 
 .login-form input[type="password"],

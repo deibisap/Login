@@ -127,6 +127,26 @@ app.post('/auth', async(req, res) => {
    
 });
 
+//12 sesión
+
+app.get('/', (req, res)=> {
+	if (req.session.loggedin) {
+		res.render('index',{
+			login: true,
+			name: req.session.name			
+		});		
+	} else {
+		res.render('index',{
+			login:false,
+			name:'Debe iniciar sesión',			
+		});				
+	}
+	res.end();
+});
+
+
+
+
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000');
 }) 
