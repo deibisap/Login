@@ -68,7 +68,7 @@ app.post('/register', async (req, res) => {
                 res.render('register', {
                     alert:true,
                     alertTitle: "Registro",
-                    alertMessage: "!Registro Exitoso!",
+                    alertMessage: "!Te haz registrado correctamente!",
                     alertIcon: 'success',
                     showConfirmButton:false,
                     timer: 1500,
@@ -93,16 +93,37 @@ app.post('/auth', async(req, res) => {
         connection.query ('SELECT * FROM users WHERE user = ?', [user], async(error, results) =>{
             if(results.length == 0 || ! (await bcryptjs.compare (pass, results[0].pass))){
 
-                    res.send ('USUARIO O CONTRASEÑA INCORRECTA');  
+                res.render('login', {
+                    alert: true,
+                    alertTitle: "Error",
+                    alertMessage: "USUARIO y/o PASSWORD incorrectas",
+                    alertIcon:'error',
+                    showConfirmButton: true,
+                    timer: false,
+                    ruta: 'login'    
+                }); 
             }else {
 
-                res.send ('LOGIN CORRECTO')
+                req.session.loggedin = true;                
+				req.session.name = results[0].name;
+				res.render('login', {
+					alert: true,
+					alertTitle: "Conexión exitosa",
+					alertMessage: "¡LOGIN CORRECTO!",
+					alertIcon:'success',
+					showConfirmButton: false,
+					timer: 1500,
+					ruta: ''
+				});        	
                 
             }
 
         } )
 
-    }
+    } else {	
+		res.send('Please enter user and Password!');
+		res.end();
+	}
    
 });
 

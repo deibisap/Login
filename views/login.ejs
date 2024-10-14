@@ -13,11 +13,27 @@
     <div class="login-form">
         <h2>Bienvenido a Solution </h2>
         <form action= "/auth" method="POST">
-            <input type="text" name="user" id="user" placeholder="User" required>
-            <input type="password" name="pass" id="pass" placeholder="Password" required>
+            <input type="text" name="user" id="user" placeholder="User" >
+            <input type="password" name="pass" id="pass" placeholder="Password">
             <input type="submit" class="btn-login" value="Login">
         </form>
             <a href="Register" class="btn-register">Registrate</a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if (typeof alert != "undefined")  { %>
+        <script>
+        Swal.fire({
+          title:'<%= alertTitle %>',
+          text:'<%= alertMessage %>',
+          icon:'<%= alertIcon %>',
+          showConfirmButton: <%= showConfirmButton %>,
+          timer: <%= timer %>
+        }).then(()=>{
+          window.location='/<%= ruta %>'
+        })
+        </script>
+       <% } %>
+
 </body>
 </html>
