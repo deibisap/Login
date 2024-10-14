@@ -4,24 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
     <title>Register</title>
 </head>
 <body>
-    <div class= "register-form">
-        <h1>Form Registro</h1>
-        <form action="register" method=""POST">
-         <label for="">User name</label>
-         <input type="text" name="user" required>
-        
-         <label for="pass">Password</label>
-         <input type="text" name="pass" required>
-
-         <div style="display: inline">
-            <a href="/" class= "btn-cancel" > Cancel</a><input type="submit" class="btn-save" value="Save">
-         </div>
-        </form>
-
-
-    </div>
+    <div class="register-form">
+		<h1>Form Registration</h1>
+		<form action="/register" method="POST">
+            <label for="user">User</label>
+                <input type="text" name="user" required tabindex="1" autofocus>            
+            <label for="user">Full Name</label>
+                <input type="text" name="name" required tabindex="2">
+            
+            <label for="rol">Rol</label>                          
+            <select id="rol" name="rol" class="select-css" tabindex="3">
+                <option value="admin" selected>Admin</option>
+                <option value="data entry">Data Entry</option>                    
+            </select>
+             <br> 
+            <label for="pass">Password</label>
+			    <input type="password" name="pass" required tabindex="4">
+            <div style="display: inline;">             
+            <a href="/" class="btn-cancel">Cancel</a><input type="submit" class="btn-save" value="Save">           
+            </div>
+		</form>		
+	</div>
 </body>
 </html>

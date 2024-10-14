@@ -52,6 +52,26 @@ app.get ('/register',(req,res)=> {
 })
 
 
+// 10. registro (acá capturo los datos del formulario)
+
+app.post('/register', async (req, res) => {
+    const user= req.body.user;
+    const name= req.body.name;
+    const rol = req.body.rol;
+    const pass = req.body.pass;
+    let passwordHaash = await bcryptjs.hash(pass, 8);
+    connection.query('INSERt INTO users SET ?' ,{user:user, name:name, rol:rol, pass:passwordHaash}, async (error, results)=>{
+
+            if(error){
+                console.log(error);
+            }else{
+                res.send("Registro exitoso")
+            }
+    })
+    
+});
+
+
 app.listen(3000, (req, res)=>{
     console.log('SERVER RUNNING IN http://localhost:3000');
 }) 
