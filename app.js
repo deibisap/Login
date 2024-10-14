@@ -142,6 +142,15 @@ app.get('/', (req, res)=> {
 	res.end();
 });
 
+
+// limpiar cache
+
+app.use(function(req, res, next) {
+    if (!req.user)
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    next();
+});
+
 //13 Logout
 
 app.get('/logout', function (req, res) {
