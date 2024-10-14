@@ -65,11 +65,23 @@ app.post('/register', async (req, res) => {
             if(error){
                 console.log(error);
             }else{
-                res.send("Registro exitoso")
+                res.render('register', {
+                    alert:true,
+                    alertTitle: "Registro",
+                    alertMessage: "!Registro Exitoso!",
+                    alertIcon: 'success',
+                    showConfirmButton:false,
+                    timer: 1500,
+                    ruta:" "
+                })
+                 
             }
     })
-    
+       
 });
+
+
+
 
 // 11 AUTENTICACION
 app.post('/auth', async(req, res) => {
@@ -85,6 +97,7 @@ app.post('/auth', async(req, res) => {
             }else {
 
                 res.send ('LOGIN CORRECTO')
+                
             }
 
         } )
